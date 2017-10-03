@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">UTS Professional Journal</string>
+    <string name="app_name">Journal Pro</string>
     <string name="login">Login</string>
-    <string name="singup">SingUp</string>
-    <string name="forgetpassword">ForgetPassword</string>
+    <string name="signup">Sign Up</string>
+    <string name="forgotpassword">Forgot Password?</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
     <string name="loading">Loading…</string>
@@ -10,6 +10,6 @@
     <string name="hello_round">Hello Round World!</string>
     <string name="hello_square">Hello Square World!</string>
     <string name="signout">signout</string>
-    <string name="title_activity_main3">Jounral Entrys</string>
+    <string name="title_activity_main3">Journal Entries</string>
     <string name="title_activity_main">My Entry</string>
 </resources>

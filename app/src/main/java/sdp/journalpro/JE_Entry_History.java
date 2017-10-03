@@ -1,6 +1,7 @@
-package com.journalpro.sdp.journalpro;
+package sdp.journalpro;
 
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 public class JE_Entry_History extends JE_Base_Activity {
 

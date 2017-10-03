@@ -1,4 +1,4 @@
-package com.journalpro.sdp.journalpro;
+package sdp.journalpro;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -7,7 +7,6 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AlertDialog;
@@ -15,8 +14,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
-import android.util.Log;
 import android.view.View;
+
+import android.support.annotation.NonNull;
+import android.util.Log;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.SearchView;
@@ -121,6 +122,8 @@ public class JE_Main_Home
                 switch (adapterModel) {
                     case HOME:
                         return true;
+                    case HIDE:
+                        return true;
                     default:
                         return false;
                 }
@@ -128,55 +131,82 @@ public class JE_Main_Home
 
             @Override
             public void onSwiped(final RecyclerView.ViewHolder viewHolder, int direction) {
-                switch (direction) {
-                    case ItemTouchHelper.LEFT:
 
-                        AlertDialog.Builder builder_left = new AlertDialog.Builder(JE_Main_Home.this); //alert for confirm to delete
-                        builder_left.setMessage("Are you sure to delete?");    //set message
+                final JE_Main_Adapter _adapter = (JE_Main_Adapter) recyclerView.getAdapter();
 
-                        final JE_Main_Adapter adapter_left = (JE_Main_Adapter) recyclerView.getAdapter();
+                AlertDialog.Builder builder = new AlertDialog.Builder(JE_Main_Home.this);
 
-                        builder_left.setPositiveButton("DELETE", new DialogInterface.OnClickListener() { //when click on DELETE
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                int position = viewHolder.getAdapterPosition();
-                                adapter_left.remove(position);
+                if (adapter.getModel() == JE_Main_Adapter.AdapterModel.HOME)
+                {
+                    switch (direction) {
+                        case ItemTouchHelper.LEFT:
 
-                            }
-                        }).setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {  //not removing items if cancel is done
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                int position = viewHolder.getAdapterPosition();
-                                adapter_left.notifyItemRemoved(position + 1);    //notifies the RecyclerView Adapter that data in adapter has been removed at a particular position.
-                                adapter_left.notifyItemRangeChanged(position, adapter_left.getItemCount());   //notifies the RecyclerView Adapter that positions of element in adapter has been changed from position(removed element index to end of list), please update it.
-                            }
-                        }).show();  //show alert dialog
+                            //alert for confirm to delete
+                            builder.setMessage("Are you sure to delete?");    //set message
 
-                        break;
-                    case ItemTouchHelper.RIGHT:
+                            builder.setPositiveButton("DELETE", new DialogInterface.OnClickListener() { //when click on DELETE
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    int position = viewHolder.getAdapterPosition();
+                                    _adapter.remove(position);
 
-                        AlertDialog.Builder builder_right = new AlertDialog.Builder(JE_Main_Home.this); //alert for confirm to delete
-                        builder_right.setMessage("Are you sure to hide?");    //set message
+                                }
+                            }).setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {  //not removing items if cancel is done
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    int position = viewHolder.getAdapterPosition();
+                                    _adapter.notifyItemRemoved(position + 1);    //notifies the RecyclerView Adapter that data in adapter has been removed at a particular position.
+                                    _adapter.notifyItemRangeChanged(position, _adapter.getItemCount());   //notifies the RecyclerView Adapter that positions of element in adapter has been changed from position(removed element index to end of list), please update it.
+                                }
+                            }).show();  //show alert dialog
 
-                        final JE_Main_Adapter adapter_right = (JE_Main_Adapter) recyclerView.getAdapter();
+                            break;
+                        case ItemTouchHelper.RIGHT:
 
-                        builder_right.setPositiveButton("HIDE", new DialogInterface.OnClickListener() { //when click on DELETE
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                int position = viewHolder.getAdapterPosition();
-                                adapter_right.hidden(position);
+//                            AlertDialog.Builder builder_right = new AlertDialog.Builder(JE_Main_Home.this); //alert for confirm to delete
+                            builder.setMessage("Are you sure to hide?");    //set message
 
-                            }
-                        }).setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {  //not removing items if cancel is done
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                int position = viewHolder.getAdapterPosition();
-                                adapter_right.notifyItemRemoved(position + 1);    //notifies the RecyclerView Adapter that data in adapter has been removed at a particular position.
-                                adapter_right.notifyItemRangeChanged(position, adapter_right.getItemCount());   //notifies the RecyclerView Adapter that positions of element in adapter has been changed from position(removed element index to end of list), please update it.
-                            }
-                        }).show();  //show alert dialog
+//                            final JE_Main_Adapter adapter_right = (JE_Main_Adapter) recyclerView.getAdapter();
 
-                        break;
+                            builder.setPositiveButton("HIDE", new DialogInterface.OnClickListener() { //when click on DELETE
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    int position = viewHolder.getAdapterPosition();
+                                    _adapter.hidden(position);
+
+                                }
+                            }).setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {  //not removing items if cancel is done
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    int position = viewHolder.getAdapterPosition();
+                                    _adapter.notifyItemRemoved(position + 1);    //notifies the RecyclerView Adapter that data in adapter has been removed at a particular position.
+                                    _adapter.notifyItemRangeChanged(position, _adapter.getItemCount());   //notifies the RecyclerView Adapter that positions of element in adapter has been changed from position(removed element index to end of list), please update it.
+                                }
+                            }).show();  //show alert dialog
+
+                            break;
+                    }
+                }
+
+                if (adapter.getModel() == JE_Main_Adapter.AdapterModel.HIDE) {
+                    //alert for confirm to delete
+                    builder.setMessage("Are you sure to Unhide?");    //set message
+                    builder.setPositiveButton("UNHIDEEN", new DialogInterface.OnClickListener() { //when click on DELETE
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            int position = viewHolder.getAdapterPosition();
+                            _adapter.UnHidden(position);
+
+                        }
+                    }).setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {  //not removing items if cancel is done
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            int position = viewHolder.getAdapterPosition();
+                            _adapter.notifyItemRemoved(position + 1);    //notifies the RecyclerView Adapter that data in adapter has been removed at a particular position.
+                            _adapter.notifyItemRangeChanged(position, _adapter.getItemCount());   //notifies the RecyclerView Adapter that positions of element in adapter has been changed from position(removed element index to end of list), please update it.
+                        }
+                    }).show();  //show alert dialog
+                    return;
                 }
             }
         };
@@ -361,9 +391,7 @@ public class JE_Main_Home
                     int row = data.getIntExtra("row", 0);
                     dataset.set(row, item);
                     adapter.resetOringinally_Dataset();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (ClassNotFoundException e) {
+                } catch (IOException | ClassNotFoundException e) {
                     e.printStackTrace();
                 } finally {
                     try {
@@ -391,9 +419,7 @@ public class JE_Main_Home
                     HashMap<String, String> item = user_detail.passingToHashMap();
                     dataset.add(item);
                     adapter.resetOringinally_Dataset();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (ClassNotFoundException e) {
+                } catch (IOException | ClassNotFoundException e) {
                     e.printStackTrace();
                 } finally {
                     try {

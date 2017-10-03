@@ -1,11 +1,13 @@
-package com.journalpro.sdp.journalpro;
+package sdp.journalpro;
 
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+//import android.widget.CalendarView;
 import android.widget.Toast;
 
 import com.squareup.timessquare.CalendarPickerView;
@@ -15,7 +17,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-//import android.widget.CalendarView;
+import static com.squareup.timessquare.R.layout.month;
 
 public class JE_Calendar_Activity extends JE_Base_Activity {
 

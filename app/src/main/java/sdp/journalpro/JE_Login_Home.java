@@ -1,16 +1,18 @@
-package com.journalpro.sdp.journalpro;
+package sdp.journalpro;
 
 //import android.app.ProgressDialog;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
+//import android.support.annotation.VisibleForTesting;
+//import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+//import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -18,11 +20,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import static android.widget.Toast.makeText;
+import android.widget.Toast;
 
-//import android.support.annotation.VisibleForTesting;
-//import android.support.v7.app.AppCompatActivity;
-//import android.widget.TextView;
+import static android.widget.Toast.makeText;
 
 public class JE_Login_Home extends JE_Base_Activity implements View.OnClickListener, FirebaseAuth.AuthStateListener {
 
@@ -37,7 +37,7 @@ public class JE_Login_Home extends JE_Base_Activity implements View.OnClickListe
 
     Button loginBtn;
 
-    Button forgetPasswordBtn;
+//    Button forgetPasswordBtn;
 
     Button singupBtn;
 
@@ -55,14 +55,14 @@ public class JE_Login_Home extends JE_Base_Activity implements View.OnClickListe
         //實作 loginButton 物件
         loginBtn = findViewById(R.id.login);
         //實作 forgetPasswordButton 物件
-        forgetPasswordBtn = findViewById(R.id.forgetPassword);
+//        forgetPasswordBtn = findViewById(R.id.forgetPassword);
         //實作 singupButton 物件
         singupBtn = findViewById(R.id.singup);
 
         //偵聽 Button 點擊事件
         loginBtn.setOnClickListener(this);
         //偵聽 Button 點擊事件
-        forgetPasswordBtn.setOnClickListener(this);
+//        forgetPasswordBtn.setOnClickListener(this);
         //偵聽 Button 點擊事件
         singupBtn.setOnClickListener(this);
     }
@@ -246,12 +246,12 @@ public class JE_Login_Home extends JE_Base_Activity implements View.OnClickListe
                 // 點擊Btn後，要做的事情
                 signIn(email, password);
                 break;
-            case R.id.forgetPassword:
-                // 點擊Btn後，要做的事情
-                String test2 = "ForgetPassword";
-                Log.d(TAG, test2);
-                Log.d("1239999999", "456");
-                break;
+//            case R.id.forgetPassword:
+//                // 點擊Btn後，要做的事情
+//                String test2 = "ForgetPassword";
+//                Log.d(TAG, test2);
+//                Log.d("1239999999", "456");
+//                break;
             case R.id.singup:
                 // 點擊Btn後，要做的事情
                 createAccount(email, password);

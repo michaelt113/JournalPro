@@ -1,4 +1,4 @@
-package com.journalpro.sdp.journalpro;
+package sdp.journalpro;
 
 class JE_User {
 

@@ -1,4 +1,4 @@
-package com.journalpro.sdp.journalpro;
+package sdp.journalpro;
 
 import java.io.Serializable;
 import java.util.HashMap;

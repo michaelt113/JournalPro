@@ -1,4 +1,4 @@
-package com.journalpro.sdp.journalpro;
+package sdp.journalpro;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.journalpro.sdp.journalpro", appContext.getPackageName());
+        assertEquals("sdp.journalpro", appContext.getPackageName());
     }
 }

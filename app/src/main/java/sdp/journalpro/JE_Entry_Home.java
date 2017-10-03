@@ -1,4 +1,4 @@
-package com.journalpro.sdp.journalpro;
+package sdp.journalpro;
 
 
 import android.content.Intent;
@@ -51,6 +51,7 @@ public class JE_Entry_Home extends JE_Base_Activity implements View.OnClickListe
         setContentView(R.layout.je_entry_home);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        // Initialize and connect to FireBase Database
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance();
         mReference = mDatabase.getReference();

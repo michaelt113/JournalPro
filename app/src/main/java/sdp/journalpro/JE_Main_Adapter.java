@@ -1,11 +1,16 @@
-package com.journalpro.sdp.journalpro;
+package sdp.journalpro;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.support.annotation.ColorRes;
 import android.support.constraint.ConstraintLayout;
+import android.support.v4.util.DebugUtils;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,10 +28,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 
@@ -250,6 +260,7 @@ class JE_Main_Adapter extends RecyclerView.Adapter<JE_Main_Adapter.ViewHolder> {
         return hiddenDataset.size();
     }
 
+    AdapterModel getModel() { return  this.model; }
 
     void changeModel(AdapterModel model) {
         this.model = model;
@@ -291,9 +302,25 @@ class JE_Main_Adapter extends RecyclerView.Adapter<JE_Main_Adapter.ViewHolder> {
         resetOringinally_Dataset();
     }
 
+    void UnHidden(int position) {
+        Log.e("UnHidden", "UnHidden Posititon => " + position);
+        System.out.println("position => " + position);
+        System.out.println("UNHIDDEN BEFORE SIZE => " + hiddenDataset.size());
+        notifyItemRemoved(position);
+
+        //add unhided data to dataset
+        dataset.add(hiddenDataset.get(position));
+
+        //remove data from hiddendataset
+        hiddenDataset.remove(position);
+        System.out.println("UNHIDDEN AFTER SIZE => " + hiddenDataset.size());
+
+        resetOringinally_Dataset();
+    }
+
     void resetOringinally_Dataset() {
 
-        if (model == AdapterModel.HOME) {
+        if (model == AdapterModel.HOME || model == AdapterModel.HIDE) {
             originally_dataset.clear();
             originally_dataset.addAll(dataset);
         }
