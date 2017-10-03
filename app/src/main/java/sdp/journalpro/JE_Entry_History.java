@@ -21,12 +21,14 @@ import java.util.Set;
 
 public class JE_Entry_History extends JE_Base_Activity {
 
+    // Entries list layout items
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     JE_Entry_History_Adapter adapter;
 
     HashMap<String, Object> dataset;
 
+    // vars for firebase database & authentication
     private FirebaseAuth mAuth;
     private FirebaseUser mVerifiedUser;
     private FirebaseDatabase mDatabase;
@@ -38,6 +40,7 @@ public class JE_Entry_History extends JE_Base_Activity {
         setContentView(R.layout.je_entry_history);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        // Initialize Firebase
         mAuth = FirebaseAuth.getInstance();
         mVerifiedUser = mAuth.getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance();

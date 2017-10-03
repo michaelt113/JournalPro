@@ -28,18 +28,18 @@ public class JE_Login_Home extends JE_Base_Activity implements View.OnClickListe
 
     private static final String TAG = "MyActivity";
 
+    // Firebase variables
     private FirebaseAuth mAuth;
-
     FirebaseAuth.AuthStateListener mAuthListener;
 
+    // Text fields
     private EditText emailEditText;
     private EditText passwordEditText;
 
+    // Buttons Layout
     Button loginBtn;
-
-//    Button forgetPasswordBtn;
-
-    Button singupBtn;
+    Button forgotPasswordBtn;
+    Button signupBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,16 +57,17 @@ public class JE_Login_Home extends JE_Base_Activity implements View.OnClickListe
         //實作 forgetPasswordButton 物件
 //        forgetPasswordBtn = findViewById(R.id.forgetPassword);
         //實作 singupButton 物件
-        singupBtn = findViewById(R.id.singup);
+        signupBtn = findViewById(R.id.singup);
 
         //偵聽 Button 點擊事件
         loginBtn.setOnClickListener(this);
         //偵聽 Button 點擊事件
 //        forgetPasswordBtn.setOnClickListener(this);
         //偵聽 Button 點擊事件
-        singupBtn.setOnClickListener(this);
+        signupBtn.setOnClickListener(this);
     }
 
+    // Check login status
     @Override
     public void onStart() {
         super.onStart();
@@ -126,10 +127,11 @@ public class JE_Login_Home extends JE_Base_Activity implements View.OnClickListe
             intent.setClass(this, JE_Main_Home.class);
             startActivity(intent);
         } else {
-            singupBtn.setVisibility(View.VISIBLE);
+            signupBtn.setVisibility(View.VISIBLE);
         }
     }
 
+    // Verify if user already signed in
     private void signInAlready(FirebaseUser user) {
         if (user != null) {
             updateUI(user);
@@ -138,11 +140,13 @@ public class JE_Login_Home extends JE_Base_Activity implements View.OnClickListe
         }
     }
 
+    // Signs the user out
     private void signOut() {
         mAuth.signOut();
         updateUI(null);
     }
 
+    // Create a user account through firebase, verification email
     private void createAccount(final String email, final String password) {
         if (!validateForm()) {
             return;
@@ -205,9 +209,9 @@ public class JE_Login_Home extends JE_Base_Activity implements View.OnClickListe
 
     }
 
-
     private void sendEmailVerification() {
         showProgressDialog();
+
         // [START send_email_verification]
         final FirebaseUser user = mAuth.getCurrentUser();
         assert user != null;
@@ -217,7 +221,6 @@ public class JE_Login_Home extends JE_Base_Activity implements View.OnClickListe
                     public void onComplete(@NonNull Task<Void> task) {
                         // [START_EXCLUDE]
                         // Re-enable button
-
                         if (task.isSuccessful()) {
                             Toast.makeText(getApplicationContext(),
                                     "Verification email sent to " + user.getEmail(),
@@ -234,7 +237,6 @@ public class JE_Login_Home extends JE_Base_Activity implements View.OnClickListe
                 });
         // [END send_email_verification]
     }
-
 
     @Override
     public void onClick(View v) {
@@ -259,6 +261,5 @@ public class JE_Login_Home extends JE_Base_Activity implements View.OnClickListe
             default:
                 break;
         }
-
     }
 }

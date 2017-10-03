@@ -29,6 +29,7 @@ import java.util.Set;
 
 public class JE_Entry_Home extends JE_Base_Activity implements View.OnClickListener {
 
+    // Layout var
     Button modifyBtn;
     Button historyBtn;
     boolean isModify = false;
@@ -37,12 +38,15 @@ public class JE_Entry_Home extends JE_Base_Activity implements View.OnClickListe
     EditText date;
     EditText description;
 
+    // User ID var
     String uuid;
 
+    // Firebase initiation and authentication var
     private FirebaseAuth mAuth;
     private FirebaseDatabase mDatabase;
     private DatabaseReference mReference;
 
+    // ?
     String old_date;
 
     @Override
@@ -56,24 +60,28 @@ public class JE_Entry_Home extends JE_Base_Activity implements View.OnClickListe
         mDatabase = FirebaseDatabase.getInstance();
         mReference = mDatabase.getReference();
 
+        // Modify Entry button
         modifyBtn = findViewById(R.id.entry_home_modify_button);
         modifyBtn.setOnClickListener(this);
 
+        // View history button
         historyBtn = findViewById(R.id.entry_home_history_button);
         historyBtn.setOnClickListener(this);
 
-
+        // Edit entry title
         Intent intent = getIntent();
         String _name = intent.getStringExtra("name");
         name = findViewById(R.id.entry_home_name_edit);
         name.setText(_name);
 
+        // update date
         String _date = intent.getStringExtra("date");
         date = findViewById(R.id.entry_home_date_edit);
         date.setText(_date);
         date.setFocusable(false);
         date.setOnClickListener(this);
 
+        // Edit entry content
         String _description = intent.getStringExtra("description");
         description = findViewById(R.id.entry_home_description_edit);
         description.setText(_description);
@@ -165,6 +173,7 @@ public class JE_Entry_Home extends JE_Base_Activity implements View.OnClickListe
         }
     }
 
+    //
     private void writeDataOfUser(String userId, String uuid) {
 
         final String dateString = date.getText().toString();
@@ -327,8 +336,5 @@ public class JE_Entry_Home extends JE_Base_Activity implements View.OnClickListe
 
             }
         });
-
     }
 }
-
-
