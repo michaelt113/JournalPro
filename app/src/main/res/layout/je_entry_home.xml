@@ -136,7 +136,7 @@
             android:id="@+id/entry_home_description_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.85"
+            android:layout_weight="1.16"
             android:ems="10"
             android:gravity="top"
             android:inputType="text"
@@ -144,51 +144,6 @@
             tools:ignore="InefficientWeight"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="26dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="41dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp">
-
-        <Button
-            android:id="@+id/entry_home_modify_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="27dp"
-            android:backgroundTint="@android:color/holo_red_light"
-            android:text="Modify"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/entry_home_description_linear"
-            tools:ignore="MissingConstraints,UnusedAttribute"
-            tools:layout_constraintLeft_creator="1"
-            tools:layout_constraintRight_creator="1"
-            tools:layout_constraintTop_creator="1" />
-
-        <Button
-            android:id="@+id/entry_home_history_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorPrimary"
-            android:text="History"
-            android:textColor="@android:color/white"
-            tools:ignore="UnusedAttribute"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="104dp" />
 
     </LinearLayout>
 
@@ -206,5 +161,54 @@
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintTop_creator="1" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1">
+
+        <Button
+            android:id="@+id/entry_home_modify_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="27dp"
+            android:backgroundTint="@android:color/holo_red_light"
+            android:text="Modify"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/entry_home_description_linear"
+            tools:ignore="MissingConstraints,UnusedAttribute"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintTop_creator="1" />
+
+        <Button
+            android:id="@+id/entry_home_history_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="History"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            tools:ignore="UnusedAttribute"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="104dp" />
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
