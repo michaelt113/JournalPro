@@ -29,16 +29,17 @@ import java.util.Set;
 
 public class JE_Entry_Home extends JE_Base_Activity implements View.OnClickListener {
 
-    // Layout var
+    // Layout variables
     Button modifyBtn;
     Button historyBtn;
     boolean isModify = false;
 
+    // Layout text variables
     EditText name;
     EditText date;
     EditText description;
 
-    // User ID var
+    // User ID for Firebase
     String uuid;
 
     // Firebase initiation and authentication var
@@ -169,11 +170,11 @@ public class JE_Entry_Home extends JE_Base_Activity implements View.OnClickListe
         if (user != null) {
             writeDataOfUser(user.getUid(), uuid);
         } else {
-            Toast.makeText(this.getApplicationContext(), "Your account not through verify", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this.getApplicationContext(), "Your account needs to be verified", Toast.LENGTH_SHORT).show();
         }
     }
 
-    //
+    // Write user data to firebase (update)
     private void writeDataOfUser(String userId, String uuid) {
 
         final String dateString = date.getText().toString();
