@@ -2,6 +2,7 @@ package sdp.journalpro;
 
 class JE_User {
 
+    // vars
     private String userId;
 
     JE_User(String userId) {
@@ -10,8 +11,9 @@ class JE_User {
 
     UserVerified getVerified() {
         return new UserVerified(userId);
-    }
+    }   // returns a verified user
 
+    // User Constructor
     private static class UserVerified {
 
         String verified_detail;

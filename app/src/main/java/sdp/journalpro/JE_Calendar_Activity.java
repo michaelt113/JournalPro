@@ -86,6 +86,7 @@ public class JE_Calendar_Activity extends JE_Base_Activity {
         return dateList;
     }
 
+    // ToString the date
     private static class StringDate {
         String dayOfTheWeek;
         String dayOfMonth;

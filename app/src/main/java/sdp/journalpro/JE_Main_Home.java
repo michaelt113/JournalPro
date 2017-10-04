@@ -59,21 +59,24 @@ public class JE_Main_Home
 
     ItemTouchHelper.SimpleCallback simpleCallback;
 
+    // Firebase Variables
     FirebaseAuth mAuth;
     FirebaseDatabase mDatabase;
     DatabaseReference mReference;
 
+    //
     ArrayList<Object> dataset;
     String[] lunch;
 
+    // Variables for the list view
     HashMap<String, Object> jsonData;
     JE_Main_Adapter adapter;
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
 
-    SearchView editsearch;
+    SearchView editsearch;      // Search bar
 
-    FloatingActionButton calendar;
+    FloatingActionButton calendar;  // Calendar button
     boolean ChooseCalendar = false;
 
     JE_Main_Adapter.AdapterModel adapterModel;
