@@ -132,6 +132,7 @@ public class JE_Main_Home
                 }
             }
 
+            // Swipe functionality - hide and delete
             @Override
             public void onSwiped(final RecyclerView.ViewHolder viewHolder, int direction) {
 
@@ -145,7 +146,7 @@ public class JE_Main_Home
                         case ItemTouchHelper.LEFT:
 
                             //alert for confirm to delete
-                            builder.setMessage("Are you sure to delete?");    //set message
+                            builder.setMessage(R.string.toast_delete_confirm);    //set message
 
                             builder.setPositiveButton("DELETE", new DialogInterface.OnClickListener() { //when click on DELETE
                                 @Override
@@ -167,7 +168,7 @@ public class JE_Main_Home
                         case ItemTouchHelper.RIGHT:
 
 //                            AlertDialog.Builder builder_right = new AlertDialog.Builder(JE_Main_Home.this); //alert for confirm to delete
-                            builder.setMessage("Are you sure to hide?");    //set message
+                            builder.setMessage(R.string.toast_delete_confirm);    //set message
 
 //                            final JE_Main_Adapter adapter_right = (JE_Main_Adapter) recyclerView.getAdapter();
 
@@ -255,6 +256,8 @@ public class JE_Main_Home
         mDatabase = FirebaseDatabase.getInstance();
         mReference = mDatabase.getReference();
 
+
+        // Login functionality - check if verified
         switch (position) {
             case 0:
                 adapterModel = JE_Main_Adapter.AdapterModel.HOME;
@@ -278,10 +281,10 @@ public class JE_Main_Home
 
                                 }
                             });
-                            makeText(this.getApplicationContext(), "Email Verified", Toast.LENGTH_SHORT).show();
+                            makeText(this.getApplicationContext(), R.string.toast_login_email_verified, Toast.LENGTH_SHORT).show();
                         } else {
                             signOut();
-                            makeText(this.getApplicationContext(), "Not Email Verified", Toast.LENGTH_SHORT).show();
+                            makeText(this.getApplicationContext(), R.string.toast_login_verification_failed, Toast.LENGTH_SHORT).show();
                         }
                     }
                 }

@@ -54,13 +54,16 @@ public class JE_Login_Home extends JE_Base_Activity implements View.OnClickListe
 
         //實作 loginButton 物件
         loginBtn = findViewById(R.id.login);
+
         //實作 forgetPasswordButton 物件
-//        forgetPasswordBtn = findViewById(R.id.forgetPassword);
+//      forgetPasswordBtn = findViewById(R.id.forgetPassword);
+
         //實作 singupButton 物件
-        signupBtn = findViewById(R.id.singup);
+        signupBtn = findViewById(R.id.signup);
 
         //偵聽 Button 點擊事件
         loginBtn.setOnClickListener(this);
+
         //偵聽 Button 點擊事件
 //        forgetPasswordBtn.setOnClickListener(this);
         //偵聽 Button 點擊事件
@@ -177,6 +180,7 @@ public class JE_Login_Home extends JE_Base_Activity implements View.OnClickListe
         // [END create_user_with_email]
     }
 
+    // Sign in functionality, verifies account details with firebase
     private void signIn(String email, String password) {
         if (!validateForm()) {
             return;
@@ -254,7 +258,7 @@ public class JE_Login_Home extends JE_Base_Activity implements View.OnClickListe
 //                Log.d(TAG, test2);
 //                Log.d("1239999999", "456");
 //                break;
-            case R.id.singup:
+            case R.id.signup:
                 // 點擊Btn後，要做的事情
                 createAccount(email, password);
                 break;

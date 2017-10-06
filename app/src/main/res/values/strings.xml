@@ -11,10 +11,10 @@
     <string name="loading">Loading…</string>
 
     // Menu Navigation Strings
-    <string name="menu_nav_home">Home</string>
-    <string name="menu_nav_history">Hidden</string>
-    <string name="menu_nav_deleted">Deleted</string>
-    <string name="menu_nav_signout">Sign Out</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_history">Hidden</string>
+    <string name="nav_deleted">Deleted</string>
+    <string name="nav_signout">Sign Out</string>
 
     // Layout Name Strings
     <string name="title_activity_main2">Main2Activity</string>
@@ -27,19 +27,24 @@
     // Error Messages string
     <string name="toast_authentication_failed">"Authentication failed."</string>
     <string name="toast_login_success">...</string>
-    <string name="toast_login_email_verified">...</string>
+    <string name="toast_login_email_verified">Email Verified Successfully</string>
     <string name="toast_login_already_logged">...</string>
     <string name="toast_login_check_verification_email">...</string>
+    <string name="toast_login_verification_failed">Verification Failed, please check email</string>
 
     // Toast Messages (Other)
-    <string name="toast_">...</string>
+    <string name="toast_delete_confirm">Are you sure you want to delete this entry?</string>
+    <string name="toast_hide_confirm">Are you sure you want to hide this entry?</string>
 
-    // Entry Home Strings
+
+    // Layout strings
     <string name="modify">Modify</string>
     <string name="history">History</string>
     <string name="description">Description</string>
     <string name="date">Date</string>
     <string name="title">Title</string>
     <string name="time">Time</string>
+    <string name="name">Name</string>
+    <string name="textview">Date</string>
 
 </resources>
