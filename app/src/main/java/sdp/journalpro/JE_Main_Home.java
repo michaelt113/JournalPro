@@ -358,7 +358,7 @@ public class JE_Main_Home
                 startActivityForResult(intent, 5555);
             } else {
                 ViewCompat.setBackgroundTintList(calendar, ColorStateList.valueOf(Color.rgb(8, 78, 149)));
-                Toast.makeText(this, "Data All Reseted", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "All Data Reset", Toast.LENGTH_LONG).show();
                 adapter.changeModel(JE_Main_Adapter.AdapterModel.HOME);
                 adapter.resetDataset();
                 ChooseCalendar = false;

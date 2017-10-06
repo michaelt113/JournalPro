@@ -25,10 +25,21 @@
     <string name="title_activity_main">My Entry</string>
 
     // Error Messages string
-    <string name="toast_login_failed">...</string>
+    <string name="toast_authentication_failed">"Authentication failed."</string>
     <string name="toast_login_success">...</string>
     <string name="toast_login_email_verified">...</string>
     <string name="toast_login_already_logged">...</string>
     <string name="toast_login_check_verification_email">...</string>
+
+    // Toast Messages (Other)
+    <string name="toast_">...</string>
+
+    // Entry Home Strings
+    <string name="modify">Modify</string>
+    <string name="history">History</string>
+    <string name="description">Description</string>
+    <string name="date">Date</string>
+    <string name="title">Title</string>
+    <string name="time">Time</string>
 
 </resources>

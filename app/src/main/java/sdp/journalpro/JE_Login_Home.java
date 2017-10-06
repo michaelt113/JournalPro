@@ -162,7 +162,7 @@ public class JE_Login_Home extends JE_Base_Activity implements View.OnClickListe
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
                         if (!task.isSuccessful()) {
-                            makeText(getApplicationContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
+                            makeText(getApplicationContext(), R.string.toast_authentication_failed, Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         } else {
                             sendEmailVerification();

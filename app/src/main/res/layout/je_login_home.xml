@@ -14,16 +14,16 @@
         android:layout_height="50dp"
         android:layout_marginBottom="9dp"
         android:text="@string/login"
-        app:layout_constraintBottom_toTopOf="@+id/singup"
+        app:layout_constraintBottom_toTopOf="@+id/signup"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="@+id/singup"
-        app:layout_constraintRight_toRightOf="@+id/singup"
+        app:layout_constraintLeft_toLeftOf="@+id/signup"
+        app:layout_constraintRight_toRightOf="@+id/signup"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1" />
 
     <Button
-        android:id="@+id/singup"
+        android:id="@+id/signup"
         android:layout_width="200dp"
         android:layout_height="0dp"
         android:layout_marginBottom="108dp"

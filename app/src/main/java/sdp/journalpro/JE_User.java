@@ -10,8 +10,8 @@ class JE_User {
     }
 
     UserVerified getVerified() {
-        return new UserVerified(userId);
-    }   // returns a verified user
+        return new UserVerified(userId);    // returns current verified user
+    }
 
     // User Constructor
     private static class UserVerified {

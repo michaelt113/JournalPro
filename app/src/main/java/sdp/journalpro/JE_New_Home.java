@@ -48,12 +48,13 @@ import java.util.UUID;
 
 public class JE_New_Home extends JE_Base_Activity implements View.OnClickListener, Serializable {
 
-    //
+    // Layout Variables
     EditText name;
     EditText date;
     EditText description;
     Button donebutton;
 
+    // FireBase Variables
     private FirebaseAuth mAuth;
     //    private FirebaseUser mVerifiedUser;
     private FirebaseDatabase mDatabase;
@@ -113,6 +114,7 @@ public class JE_New_Home extends JE_Base_Activity implements View.OnClickListene
         }
     }
 
+    // Verifies that field data is valid
     private boolean validateForm() {
         boolean valid = true;
 
@@ -167,7 +169,7 @@ public class JE_New_Home extends JE_Base_Activity implements View.OnClickListene
             jsonUserDateById = new HashMap<>();
         }
 
-        // get UserDate and UserDetail
+        // get UserDate and UserDetail Hashmap
         HashMap<String, Object> jsonUserDate = (HashMap<String, Object>) jsonUserDateById.get("user_date");
         HashMap<String, Object> jsonUserDetail = (HashMap<String, Object>) jsonUserDateById.get("user_detail");
         HashMap<String, Object> jsonUserHistoryDate = (HashMap<String, Object>) jsonUserDateById.get("user_history_date");
