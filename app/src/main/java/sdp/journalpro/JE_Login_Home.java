@@ -46,9 +46,11 @@ public class JE_Login_Home extends JE_Base_Activity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.je_login_home);
 
+        // Form layout objects
         emailEditText = findViewById(R.id.emailEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
 
+        // Firebase setup
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = this;
 
@@ -56,7 +58,7 @@ public class JE_Login_Home extends JE_Base_Activity implements View.OnClickListe
         loginBtn = findViewById(R.id.login);
 
         //實作 forgetPasswordButton 物件
-//      forgetPasswordBtn = findViewById(R.id.forgetPassword);
+        forgotPasswordBtn = findViewById(R.id.forgetPassword);
 
         //實作 singupButton 物件
         signupBtn = findViewById(R.id.signup);
@@ -86,7 +88,7 @@ public class JE_Login_Home extends JE_Base_Activity implements View.OnClickListe
 //        mAuth.removeAuthStateListener(mAuthListener);
     }
 
-
+    // If user status changes - verifies user
     @Override
     public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
         FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -101,9 +103,11 @@ public class JE_Login_Home extends JE_Base_Activity implements View.OnClickListe
         }
     }
 
+    // Verify form data is valid
     private boolean validateForm() {
         boolean valid = true;
 
+        // Email
         String email = emailEditText.getText().toString();
         if (TextUtils.isEmpty(email)) {
             emailEditText.setError("Required.");
@@ -112,6 +116,7 @@ public class JE_Login_Home extends JE_Base_Activity implements View.OnClickListe
             emailEditText.setError(null);
         }
 
+        // Password
         String password = passwordEditText.getText().toString();
         if (TextUtils.isEmpty(password)) {
             passwordEditText.setError("Required.");
@@ -123,6 +128,7 @@ public class JE_Login_Home extends JE_Base_Activity implements View.OnClickListe
         return valid;
     }
 
+    // Update ui with FireBase user data
     private void updateUI(FirebaseUser user) {
         hideProgressDialog();
         if (user != null) {
@@ -213,6 +219,7 @@ public class JE_Login_Home extends JE_Base_Activity implements View.OnClickListe
 
     }
 
+    // Send email verification on user registration
     private void sendEmailVerification() {
         showProgressDialog();
 
