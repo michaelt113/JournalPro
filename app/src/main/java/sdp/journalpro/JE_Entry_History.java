@@ -61,9 +61,11 @@ public class JE_Entry_History extends JE_Base_Activity {
         adapter = new JE_Entry_History_Adapter(dataset);
         recyclerView.setAdapter(adapter);
 
+        // Intent for passing user id
         Intent intent = getIntent();
         final String uuid = intent.getStringExtra("uuid");
 
+        // Get current users' journal data
         mReference.child(mAuth.getCurrentUser().getUid()).child("user_history_date").child(uuid).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -94,14 +96,14 @@ public class JE_Entry_History extends JE_Base_Activity {
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-
+                        // handle error
                     }
                 });
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                // handle cancellation
             }
         });
 

@@ -104,6 +104,7 @@ public class JE_Entry_Home extends JE_Base_Activity implements View.OnClickListe
         return super.onOptionsItemSelected(item);
     }
 
+    // Click handler
     @Override
     public void onClick(View view) {
         int i = view.getId();
@@ -157,6 +158,7 @@ public class JE_Entry_Home extends JE_Base_Activity implements View.OnClickListe
         }
     }
 
+    // Open calendar activity
     private void intoCalendarActivity() {
         if (isModify) {
             Intent intent = new Intent(this, JE_Calendar_Activity.class);
@@ -177,10 +179,13 @@ public class JE_Entry_Home extends JE_Base_Activity implements View.OnClickListe
     // Write user data to firebase (update)
     private void writeDataOfUser(String userId, String uuid) {
 
+        // Generate user variables
         final String dateString = date.getText().toString();
         final String _uuid = uuid;
         final String _userId = userId;
         mReference.child(userId).child("user_date").addListenerForSingleValueEvent(new ValueEventListener() {
+
+            // Generate user hashmap and data for firebase
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 HashMap<String, Object> jsonUserDate = (HashMap<String, Object>) dataSnapshot.getValue();
