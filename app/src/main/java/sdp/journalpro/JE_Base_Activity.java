@@ -3,6 +3,7 @@ package sdp.journalpro;
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 
+// Default for projects
 public class JE_Base_Activity extends AppCompatActivity {
 
     ProgressDialog mProgressDialog;

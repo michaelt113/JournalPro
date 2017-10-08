@@ -21,7 +21,7 @@ import static com.squareup.timessquare.R.layout.month;
 
 public class JE_Calendar_Activity extends JE_Base_Activity {
 
-
+    // Layout Variables
     boolean isSearchDate;
     CalendarPickerView calendarView;
 
@@ -38,9 +38,11 @@ public class JE_Calendar_Activity extends JE_Base_Activity {
         setContentView(R.layout.je_calendar_view);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        // Initialize Next Year Calendar
         Calendar nextYear = Calendar.getInstance();
         nextYear.add(Calendar.YEAR, 1);
 
+        // Initialize Last year Calendar
         Calendar lastYear = Calendar.getInstance();
         lastYear.add(Calendar.YEAR, -1);
 
@@ -58,6 +60,7 @@ public class JE_Calendar_Activity extends JE_Base_Activity {
         }
     }
 
+    // Initialize date and time for calendar
     private Date getDateWithYearAndMonthForDay(int year, int month, int day) {
         final Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR, year);
@@ -71,6 +74,7 @@ public class JE_Calendar_Activity extends JE_Base_Activity {
         return cal.getTime();
     }
 
+    // Initialize Calendar to current
     private List<Date> getHighlightedDaysForMonth(int... month) {
         List<Date> dateList = new ArrayList<>();
 
@@ -103,6 +107,7 @@ public class JE_Calendar_Activity extends JE_Base_Activity {
         }
     }
 
+    // Calendar listener
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int i = item.getItemId();
