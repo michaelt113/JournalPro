@@ -168,7 +168,7 @@ public class JE_Main_Home
                         case ItemTouchHelper.RIGHT:
 
 //                            AlertDialog.Builder builder_right = new AlertDialog.Builder(JE_Main_Home.this); //alert for confirm to delete
-                            builder.setMessage(R.string.toast_delete_confirm);    //set message
+                            builder.setMessage(R.string.toast_hide_confirm);    //set message
 
 //                            final JE_Main_Adapter adapter_right = (JE_Main_Adapter) recyclerView.getAdapter();
 
@@ -195,7 +195,7 @@ public class JE_Main_Home
                 if (adapter.getModel() == JE_Main_Adapter.AdapterModel.HIDE) {
                     //alert for confirm to delete
                     builder.setMessage("Are you sure to Unhide?");    //set message
-                    builder.setPositiveButton("UNHIDEEN", new DialogInterface.OnClickListener() { //when click on DELETE
+                    builder.setPositiveButton("UNHIDDEN", new DialogInterface.OnClickListener() { //when click on DELETE
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             int position = viewHolder.getAdapterPosition();
@@ -220,7 +220,7 @@ public class JE_Main_Home
 
         // the spinner is drop menu on top bar
         Spinner spinner = findViewById(R.id.spinner);
-        lunch = new String[]{"Home", "Hidden", "Deleted", "Sing Out"};
+        lunch = new String[]{"Home", "Hidden", "Deleted", "Sign Out"};
         ArrayAdapter<String> lunchList = new ArrayAdapter<>(this, R.layout.je_spinner_dropdown_item, lunch);
         spinner.setAdapter(lunchList);
         spinner.setOnItemSelectedListener(this);
