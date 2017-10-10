@@ -10,6 +10,7 @@ Professional Journal App for Systems Development Project
   
 # Operation
   -Signup: Sign up with Username and Password
+  
   -Verification: Accept Verification email to verify your account
   -Login: Login with username and password once verification is complete. 
   -New Journal: First Journal automatically generated
